@@ -27,10 +27,9 @@ DISPLAY_OLED_U8G2_SSD1306_128X32 screen(Esp01s_PIN_GPIO2, Esp01s_PIN_GPIO0);
 // DISPLAY_OLED_U8G2_SSD1306_128X64 screen(Esp01s_PIN_GPIO2, Esp01s_PIN_GPIO0);
 
 // ap 
-ApModule ap("ESP_Clock", "12345678");
+ApModule ap("{ap_ssid}", "{ap_password}");
 // wifi
-WifiModule wifi("Tenda_2C8500", "password_0438");
-// WifiModule wifi("Mate 20 Pro (UD)", "12345678");
+WifiModule wifi("{wifi_ssid}", "{wifi_password}");
 // ntp
 NtpModule ntp(&ntpClient, "ntp.ntsc.ac.cn");  
 // web
@@ -39,11 +38,6 @@ void webConfig(void){
     clk.webConfig();
 }
 
-
-void test(void){
-    Serial.println("test:");
-    Serial.println(clk.getTimestamp());
-}
 // 
 // ticker
 // 
